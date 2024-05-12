@@ -62,20 +62,23 @@ hasDownload = false} : TransformedImageProps ) => {
                     }}
                     {...transformationConfig}
                 />
-                <div className='transforming-loader'>
-                    <Image 
-                    src="/assets/icons/spinner.svg"
-                    height={50}
-                    width={50}
-                    alt="Transforming" 
-                    />
-                </div>
+                  {isTransforming && (
+            <div className="transforming-loader">
+              <Image 
+                src="/assets/icons/spinner.svg"
+                width={50}
+                height={50}
+                alt="spinner"
+              />
+              <p className="text-white/80">Please wait...</p>
             </div>
-        ) : (
-            <div className='transformed-placeholder'> 
-                Transformed Image
-            </div>
-        )}
+          )}
+        </div>
+      ): (
+        <div className="transformed-placeholder">
+          Transformed Image
+        </div>
+      )}
     </div>
   )
 }
